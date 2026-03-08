@@ -1,20 +1,33 @@
-numbers = []
-def calculate_average(numbers):
+numbers = [] #This main list stores input.
+
+def calculate_average(numbers): #This function calculates the average.
     total_sum = sum(numbers)
     total_avg = len(numbers)
     average = total_sum / total_avg
     print("Your average is ", average)
     return average
 
-def calculate_sum():
-    total_sum = sum(numbers)
-    print("Your sum is ", total_sum)
-    return total_sum
+def calculate_sum(numbers):#This function calculates the sum of numbers.
+    total_sum = 0
+    for number in numbers:
+        total_sum += number
+        print("Your sum is", total_sum)
+        return total_sum 
+    
+def calculate_diff(numbers):#This function calculates the difference (range).
+    max_num = numbers[0]
+    min_num = numbers[0]
+    for number in numbers:
+        if number > max_num:
+            max_num = number
+        if number < min_num:
+            min_num = number
+    difference = max_num - min_num
+    print("Your difference is", difference)
+    return difference
 
-
-
-
-while True:
+  
+while True: #This loop makes he program run
     choice = input("Add number(a) or stop(s) or analyze(z)? ").lower()
     if choice == 'a':
         try:
@@ -26,7 +39,10 @@ while True:
         if not numbers:
             print("Your list is Empty!!")
         else:
+            print(numbers)
             calculate_average(numbers)
+            calculate_sum(numbers)
+            calculate_diff(numbers)
     elif choice == 's':
         print("Byee .")
         break
