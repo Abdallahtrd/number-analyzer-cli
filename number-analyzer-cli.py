@@ -11,10 +11,10 @@ def calculate_sum(numbers):#This function calculates the sum of numbers.
     total_sum = 0
     for number in numbers:
         total_sum += number
-        print("Your sum is", total_sum)
-        return total_sum 
+    print("Your sum is", total_sum)
+    return total_sum 
     
-def calculate_diff(numbers):#This function calculates the difference (range).
+def calculate_range(numbers):#This function calculates the difference (range).
     max_num = numbers[0]
     min_num = numbers[0]
     for number in numbers:
@@ -23,8 +23,15 @@ def calculate_diff(numbers):#This function calculates the difference (range).
         if number < min_num:
             min_num = number
     difference = max_num - min_num
-    print("Your difference is", difference)
+    print("Your range is", difference)
     return difference
+
+def number_count(numbers):#This function checks the amount of digits in the list.
+    count = 0
+    for number in numbers:
+        count += 1
+    print("Total numbers entered", count)
+    return count
 
   
 while True: #This loop makes he program run
@@ -42,7 +49,8 @@ while True: #This loop makes he program run
             print(numbers)
             calculate_average(numbers)
             calculate_sum(numbers)
-            calculate_diff(numbers)
+            calculate_range(numbers)
+            number_count(numbers)
     elif choice == 's':
         print("Byee .")
         break
