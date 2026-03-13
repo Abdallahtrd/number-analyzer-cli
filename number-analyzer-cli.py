@@ -38,8 +38,16 @@ def above_average(numbers, average):#This function calculates and prints all num
     for number in numbers:
         if number > average:
             abv_avglist.append(number)
-            print("This number is above average:", number)
     return abv_avglist
+
+def below_average(numbers, average):
+    below_average = []
+    for number in numbers:
+        if number < average:
+            below_average.append(number)
+    return below_average
+
+
     
 
 
@@ -61,8 +69,12 @@ while True: #This loop makes he program run
             calculate_sum(numbers)
             calculate_range(numbers)
             number_count(numbers)
+            #
             abv = above_average(numbers, avg)
             print("These numbers are above average:", abv)
+            #
+            below = below_average(numbers, avg)
+            print("These numbers are below average:", below)
     elif choice == 's':
         print("Byee .")
         break
