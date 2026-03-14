@@ -69,12 +69,20 @@ while True: #This loop makes he program run
             calculate_sum(numbers)
             calculate_range(numbers)
             number_count(numbers)
-            #
+            
             abv = above_average(numbers, avg)
-            print("These numbers are above average:", abv)
-            #
+            if not abv:
+                print("No Numbers above average")
+            else:
+                print("These numbers are above average:", abv)
+
+            
             below = below_average(numbers, avg)
-            print("These numbers are below average:", below)
+            if not below:
+                print("No numbers below average")
+            else:
+                print("These numbers are below average:", below)
+                
     elif choice == 's':
         print("Byee .")
         break
