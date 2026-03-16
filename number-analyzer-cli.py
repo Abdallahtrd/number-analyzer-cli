@@ -53,7 +53,7 @@ def below_average(numbers, average):
 
   
 while True: #This loop makes he program run
-    choice = input("Add number(a) or stop(s) or analyze(z)? ").lower()
+    choice = input("Use Add number(a) or stop(s) or analyze(z) or clear list(c)").lower()
     if choice == 'a':
         try:
             number = int(input("Please add a number. "))
@@ -82,7 +82,11 @@ while True: #This loop makes he program run
                 print("No numbers below average")
             else:
                 print("These numbers are below average:", below)
-                
+    elif choice == 'c':
+        numbers = []
+        print("Your history has been cleared!!")
+
+
     elif choice == 's':
         print("Byee .")
         break
