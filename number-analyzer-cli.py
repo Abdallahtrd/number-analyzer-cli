@@ -83,7 +83,7 @@ while True: #This loop makes he program run
             else:
                 print("These numbers are below average:", below)
     elif choice == 'c':
-        numbers = []
+        numbers.clear()
         print("Your history has been cleared!!")
 
 
