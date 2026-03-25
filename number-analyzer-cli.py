@@ -52,7 +52,7 @@ def equal_average(numbers, average):#This function checks for any number equal t
     for number in numbers:
         if number == average:
             equal_average.append(number)
-            return equal_average
+    return equal_average
         
 
 
@@ -77,7 +77,7 @@ while True: #This loop makes he program run
             if not eql_avg:
                 print("There are no numbers equal to average")
             else:
-                print("Number(s) above average:", eql_avg)
+                print("Number(s) equal to average:", eql_avg)
         
             
             abv = above_average(numbers, avg)
