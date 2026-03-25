@@ -40,27 +40,31 @@ def above_average(numbers, average):#This function calculates and prints all num
             abv_avglist.append(number)
     return abv_avglist
 
-def below_average(numbers, average):
+def below_average(numbers, average):#This function calculates and prints all numbers below average.
     below_average = []
     for number in numbers:
         if number < average:
             below_average.append(number)
     return below_average
 
+def equal_average(numbers, average):#This function checks for any number equal to average.
+    equal_average = []
+    for number in numbers:
+        if number == average:
+            equal_average.append(number)
+            return equal_average
+        
 
-    
 
-
-  
 while True: #This loop makes he program run
     choice = input("Use Add number(a) or stop(s) or analyze(z) or clear list(c)").lower()
-    if choice == 'a':
+    if choice == 'a':#This is the option that adds numbers to the list
         try:
             number = int(input("Please add a number. "))
             numbers.append(number)
         except ValueError:
             print("This is not a number.")
-    elif choice == 'z':
+    elif choice == 'z':#This is the option thay analyzes numbers in the list.
         if not numbers:
             print("Your list is Empty!!")
         else:
@@ -69,6 +73,12 @@ while True: #This loop makes he program run
             calculate_sum(numbers)
             calculate_range(numbers)
             number_count(numbers)
+            eql_avg = equal_average(numbers, avg)
+            if not eql_avg:
+                print("There are no numbers equal to average")
+            else:
+                print("Number(s) above average:", eql_avg)
+        
             
             abv = above_average(numbers, avg)
             if not abv:
@@ -82,16 +92,18 @@ while True: #This loop makes he program run
                 print("No numbers below average")
             else:
                 print("These numbers are below average:", below)
-    elif choice == 'c':
+
+        
+    elif choice == 'c':#This is the option that clears the list
         numbers.clear()
         print("Your history has been cleared!!")
 
 
-    elif choice == 's':
+    elif choice == 's':#This is the option that stops the program from running.
         print("Byee .")
         break
     else:
-        print("Please input a valid choice.")
+        print("Please input a valid choice.") 
         continue
 
 
