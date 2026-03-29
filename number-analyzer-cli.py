@@ -50,6 +50,22 @@ def equal_average(numbers, average):#This function checks for any number equal t
             equal_average_list.append(number)
     return equal_average_list
 
+def manual_sort(numbers):
+    numbers = numbers[:]
+    while True:
+        swapped = False
+        for i in range(len(numbers)- 1):
+            if numbers[i] > numbers[i + 1]:
+                temp = numbers[i]
+                numbers[i] = numbers[i + 1]
+                numbers [i + 1] = temp
+                swapped = True
+            if not swapped:
+                break
+        return number
+
+     
+
 def main():
     
     if not numbers:
@@ -57,6 +73,7 @@ def main():
     else:
             print("Your list is:",numbers)
             avg = calculate_average(numbers)
+            print("Your average is:", avg)
             calc_sum = calculate_sum(numbers)
             print("The sum is:", calc_sum)
             calc_range = calculate_range(numbers)
