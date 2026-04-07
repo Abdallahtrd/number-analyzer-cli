@@ -63,7 +63,7 @@ def manual_sort(numbers):#This sorts the numbers list to pass into the median
         if not swapped:
                 break
         
-        return numbers
+    return numbers
         
     
 def calculate_median(numbers):#This calculates the median 
@@ -73,6 +73,21 @@ def calculate_median(numbers):#This calculates the median
     else:
         median = numbers[len(numbers) // 2]
         return median
+    
+def closest_to_average(average, numbers):
+    closest_number = 0
+    closest_distance = float("inf")
+    for number in numbers:
+        distance = abs(number - average)
+        if distance < closest_distance:
+            closest_number = number
+            closest_distance = distance
+        elif distance == closest_distance:
+            closest_number = number
+            closest_distance = distance
+        
+    return closest_number
+
 
 def main():
     
@@ -114,6 +129,9 @@ def main():
 
             median_calc = calculate_median(sorted_list)
             print("Your median is:", median_calc)
+
+            nearest_average = closest_to_average(avg, numbers)
+            print("The number closest to average is:", nearest_average)
     
 
 
