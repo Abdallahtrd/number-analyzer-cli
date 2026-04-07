@@ -50,20 +50,9 @@ def equal_average(numbers, average):#This function checks for any number equal t
             equal_average_list.append(number)
     return equal_average_list
 
-def manual_sort(numbers):#This sorts the numbers list to pass into the median
-    numbers = numbers[:]
-    while True:
-        swapped = False
-        for i in range(len(numbers)- 1):
-            if numbers[i] > numbers[i + 1]:
-                temp = numbers[i]
-                numbers[i] = numbers[i + 1]
-                numbers [i + 1] = temp
-                swapped = True
-        if not swapped:
-                break
-        
-    return numbers
+def list_sort(numbers):#This sorts the numbers list to pass into the median
+    sorted_numbers = sorted(numbers)     
+    return sorted_numbers
         
     
 def calculate_median(numbers):#This calculates the median 
@@ -74,7 +63,7 @@ def calculate_median(numbers):#This calculates the median
         median = numbers[len(numbers) // 2]
         return median
     
-def closest_to_average(average, numbers):
+def closest_to_average(average, numbers):#This function finds the number closest to the average number
     closest_number = 0
     closest_distance = float("inf")
     for number in numbers:
@@ -93,7 +82,7 @@ def main():
     
     if not numbers:
             print("Your list is Empty!!")
-    else:
+    else: #Analyze and display statistics using all functions
             print("Your list is:",numbers)
             avg = calculate_average(numbers)
             print("Your average is:", avg)
@@ -124,7 +113,7 @@ def main():
             else:
                 print("These numbers are below average:", below)
 
-            sorted_list = manual_sort(numbers)
+            sorted_list = list_sort(numbers)
             print("This is your sorted list:", sorted_list)
 
             median_calc = calculate_median(sorted_list)
