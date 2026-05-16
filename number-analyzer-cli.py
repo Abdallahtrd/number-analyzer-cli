@@ -77,7 +77,7 @@ def closest_to_average(average, numbers):#This function finds the number closest
         
     return closest_number
 
-def frequency_counter(numbers):
+def frequency_counter(numbers): #This function handles the frequency on numbers in the list.   
     freq = {}
     for number in numbers:
         freq.setdefault(number, 0)
@@ -92,25 +92,21 @@ def main():
             print("Your list is Empty!!")
     else: #Analyze and display statistics using all functions
             print("Your list is:",numbers)
+           
             avg = calculate_average(numbers)
-            print("Your average is:", avg)
-            print("-----------------------------------")
+            
             calc_sum = calculate_sum(numbers)
-            print("The sum is:", calc_sum)
-            print("-----------------------------------")
+            
             calc_range = calculate_range(numbers)
-            print("The range is:", calc_range)
-            print("-----------------------------------")
+            
             num_count = number_count(numbers)
-            print("The amount of digits entered are:", num_count)
-            print("-----------------------------------")
+            
             eql_avg = equal_average(numbers, avg)
             if not eql_avg:
                 print("There are no numbers equal to average")
             else:
                 print("Number(s) equal to average:", eql_avg)
-        
-            print("-----------------------------------")
+
             
             abv = above_average(numbers, avg)
             if not abv:
@@ -118,7 +114,6 @@ def main():
             else:
                 print("These numbers are above average:", abv)
 
-            print("-----------------------------------")
             
             below = below_average(numbers, avg)
             if not below:
@@ -126,25 +121,33 @@ def main():
             else:
                 print("These numbers are below average:", below)
 
-            print("-----------------------------------")
+           
             sorted_list = list_sort(numbers)
-            print("This is your sorted list:", sorted_list)
             
-
-            print("-----------------------------------")
-
             median_calc = calculate_median(sorted_list)
-            print("Your median is:", median_calc)
-
-            print("-----------------------------------")
-
+            
             nearest_average = closest_to_average(avg, numbers)
-            print("The number closest to average is:", nearest_average)
-
-            print("-----------------------------------")
             
             count_freq = frequency_counter(numbers)
-            print("The Frequency of digits are:", count_freq)
+            
+            
+            
+            results ={
+                'average': avg,
+                'sum' : calc_sum,
+                'range' : calc_range,
+                'number count' : num_count,
+                'equal to average' : eql_avg,
+                'above average' : abv,
+                'below average' : below,
+                'median' : median_calc,
+                'nearest to average' : nearest_average,
+                'frequency' : count_freq
+                
+            }
+
+            for result ,value in results.items():
+                print("Your", result ,"is:", value)
     
 
 
