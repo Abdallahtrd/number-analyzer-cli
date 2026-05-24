@@ -156,8 +156,19 @@ while True: #This loop makes he program run
     choice = input("Use Add number(a) or stop(s) or analyze(z) or clear list(c)").lower()
     if choice == 'a':#This is the option that adds numbers to the list
         try:
-            number = int(input("Please add a number. "))
-            numbers.append(number)
+            numbers_input = (input("Please input your numbers, Add a comma (,) after each entry: "))
+            temp = ""
+            for number in numbers_input:
+                if number != ",":
+                    temp += number
+                else:
+                    numbers.append(int(temp))
+                    temp = ""
+
+            if temp != "":
+                numbers.append(int(temp))
+
+
         except ValueError:
             print("This is not a number.")
     elif choice == 'z':#This is the option thay analyzes numbers in the list.
