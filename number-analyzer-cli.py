@@ -84,6 +84,20 @@ def frequency_counter(numbers): #This function handles the frequency on numbers 
         freq[number] += 1
     return freq
 
+def duplicate_numbers(numbers):
+    duplicates = {}
+    duplicate_list = []
+    for number in numbers:
+        duplicates.setdefault(number, 0)
+        duplicates[number] += 1
+    for key, value in duplicates.items():
+        if value >= 2:
+            duplicate_list.append(key)
+    return duplicate_list
+
+
+    
+
 
 
 def main():
@@ -93,13 +107,15 @@ def main():
     else: #Analyze and display statistics using all functions
             print("Your list is:",numbers)
            
-            avg = calculate_average(numbers)
+            avg = calculate_average(numbers) 
             
             calc_sum = calculate_sum(numbers)
             
             calc_range = calculate_range(numbers)
             
             num_count = number_count(numbers)
+
+            dupli_num = duplicate_numbers(numbers)
             
             eql_avg = equal_average(numbers, avg)
             if not eql_avg:
@@ -142,7 +158,8 @@ def main():
                 'below average' : below,
                 'median' : median_calc,
                 'nearest to average' : nearest_average,
-                'frequency' : count_freq
+                'frequency' : count_freq,
+                'duplicate numbers' : dupli_num,
                 
             }
 
