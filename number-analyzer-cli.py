@@ -44,11 +44,11 @@ def below_average(numbers, average):#This function calculates and prints all num
     return below_average_list
 
 def equal_average(numbers, average):#This function checks for any number equal to average.
-    equal_average_list = []
+    equal_average_var = ""
     for number in numbers:
         if number == average:
-            equal_average_list.append(number)
-    return equal_average_list
+            equal_average_var = number
+    return equal_average_var
 
 def list_sort(numbers):#This sorts the numbers list to pass into the median
     sorted_numbers = sorted(numbers)     
@@ -92,7 +92,7 @@ def duplicate_numbers(numbers):
         duplicates[number] += 1
     for key, value in duplicates.items():
         if value >= 2:
-            duplicate_list.append(key)
+            duplicate_list.append(key)        
     return duplicate_list
 
 
@@ -116,28 +116,13 @@ def main():
             num_count = number_count(numbers)
 
             dupli_num = duplicate_numbers(numbers)
-            
+        
             eql_avg = equal_average(numbers, avg)
-            if not eql_avg:
-                print("There are no numbers equal to average")
-            else:
-                print("Number(s) equal to average:", eql_avg)
-
             
             abv = above_average(numbers, avg)
-            if not abv:
-                print("No Numbers above average")
-            else:
-                print("These numbers are above average:", abv)
-
             
             below = below_average(numbers, avg)
-            if not below:
-                print("No numbers below average")
-            else:
-                print("These numbers are below average:", below)
-
-           
+            
             sorted_list = list_sort(numbers)
             
             median_calc = calculate_median(sorted_list)
@@ -163,8 +148,15 @@ def main():
                 
             }
 
-            for result ,value in results.items():
-                print("Your", result ,"is:", value)
+            for result ,value in results.items():   #This part prints all the values
+                try:
+                    if len(value) == 0:
+                        print("This", result, "is empty")
+                    elif len(value) >= 1:
+                        print("Your",result,"is:", value)
+                except TypeError:
+                    print("Your", result, "is:", value)
+                    
     
 
 
