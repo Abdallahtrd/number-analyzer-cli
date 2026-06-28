@@ -95,6 +95,12 @@ def duplicate_numbers(numbers):
             duplicate_list.append(key)        
     return duplicate_list
 
+def file_history(sent_history):
+    header = '\n===== ANALYSIS =====\n' 
+
+    with open("analyzer_history.txt", 'a') as history:
+        history.write(header)
+        history.write(sent_history)        
 
     
 
@@ -147,22 +153,28 @@ def main():
                 'duplicate numbers' : dupli_num,
                 
             }
-
+            full_history = ''
             for result ,value in results.items():   #This part prints all the values
                 try:
                     if len(value) == 0:
+                        full_history += '\n' f"Your {result} is empty"
                         print("This", result, "is empty")
                     elif len(value) >= 1:
+                        full_history += '\n' f"Your {result} is {value}"
                         print("Your",result,"is:", value)
                 except TypeError:
+                    full_history += '\n' f"Your {result} is {value}"
                     print("Your", result, "is:", value)
+            
+            file_history(full_history)
+                
                     
     
 
 
 
 while True: #This loop makes he program run
-    choice = input("Use Add number(a) or stop(s) or analyze(z) or clear list(c) ").lower()
+    choice = input("Use Add number(a) or stop(s) or analyze(z) or clear list(c) or erase history(e) ").lower()
     if choice == 'a':#This is the option that adds numbers to the list
         try:
             numbers_input = (input("Please input your numbers, Add a comma (,) after each entry: ")).split(",")
@@ -183,6 +195,10 @@ while True: #This loop makes he program run
     elif choice == 's':#This is the option that stops the program from running.
         print("Byee .")
         break
+    elif choice == 'e':
+        with open("analyzer_history.txt", 'w') as file:
+            pass
+        print("HISTORY HAS BEEN ERASED!!")
     else:
         print("Please input a valid choice.") 
         continue
